@@ -10,7 +10,7 @@ class ReportsPage extends StatefulWidget {
   State<ReportsPage> createState() => _ReportsPageState();
 }
 
-class _ReportsPageState extends State<ReportsPage> with SingleTickerProviderStateMixin {
+class _ReportsPageState extends State<ReportsPage> with TickerProviderStateMixin {
   late TabController _tabController;
   final List<String> _tabTitles = [
     'Overview',

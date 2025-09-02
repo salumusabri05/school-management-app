@@ -24,7 +24,7 @@ class AdminDashboardPage extends StatefulWidget {
   State<AdminDashboardPage> createState() => _AdminDashboardPageState();
 }
 
-class _AdminDashboardPageState extends State<AdminDashboardPage> with SingleTickerProviderStateMixin {
+class _AdminDashboardPageState extends State<AdminDashboardPage> with TickerProviderStateMixin {
   // Current selected index for bottom navigation
   int _currentNavIndex = 0;
   
@@ -430,15 +430,13 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> with SingleTick
           _buildCommunicationFeedbackTab(),
         ];
       case 5: // Reports
-        // For all report tabs, we'll use the same ReportsPage widget since it has its own internal tab navigation
-        return [
-          const ReportsPage(),
-          const ReportsPage(),
-          const ReportsPage(),
-          const ReportsPage(),
-          const ReportsPage(),
-          const ReportsPage(),
-        ];
+        // Just return a single ReportsPage instance that handles its own tab navigation
+        // We'll create a wrapper for each tab to prevent conflicts
+        return List.generate(_navigationTabs[_currentNavIndex]['tabs']!.length, 
+          (index) => Container(
+            child: index == _tabController.index ? const ReportsPage() : Container(),
+          )
+        );
       default:
         return [Container()];
     }
