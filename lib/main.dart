@@ -11,6 +11,9 @@ import 'screens/admin/admin_dashboard_page.dart';
 import 'screens/student/student_dashboard_page.dart';
 import 'screens/teacher/teacher_dashboard_page.dart';
 import 'screens/parent/parent_dashboard_page.dart';
+import 'screens/admin/reports/reports_page.dart';
+import 'screens/admin/reports/reports_performance_page.dart';
+import 'screens/admin/reports/reports_attendance_page.dart';
 
 /// Entry point for the application
 void main() async {
@@ -80,6 +83,10 @@ class MainApp extends StatelessWidget {
         "/teacher_dashboard": (context) => const TeacherDashboardPage(),
         "/student_dashboard": (context) => const StudentDashboardPage(),
         "/parent_dashboard": (context) => const ParentDashboardPage(),
+        // Reports section routes
+        "/admin/reports": (context) => const ReportsPage(),
+        "/admin/reports/performance": (context) => const ReportsPerformancePage(),
+        "/admin/reports/attendance": (context) => const ReportsAttendancePage(),
       },
       // Handle unknown routes
       onUnknownRoute: (settings) {

@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:school/screens/admin/reports/reports_page.dart';
+import 'package:school/screens/admin/finance/finance_overview_page.dart';
+import 'package:school/screens/admin/finance/finance_payments_page.dart';
+import 'package:school/screens/admin/finance/finance_invoices_page.dart';
+import 'package:school/screens/admin/students/students_overview_page.dart';
+import 'package:school/screens/admin/students/students_directory_page.dart';
+import 'package:school/screens/admin/academics/academics_classes_page.dart';
+import 'package:school/screens/admin/academics/academics_subjects_page.dart';
+import 'package:school/screens/admin/staff/staff_directory_page.dart';
+import 'package:school/screens/admin/communication/communication_announcements_page.dart';
 
 /// AdminDashboardPage - Advanced dashboard for school administrators
 /// 
@@ -48,7 +58,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> with SingleTick
     },
     // Reports tabs
     {
-      'tabs': ['Financial', 'Academic', 'Staff', 'Export']
+      'tabs': ['Overview', 'Performance', 'Attendance', 'Financial', 'Behavior', 'Staff']
     },
   ];
   
@@ -420,11 +430,14 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> with SingleTick
           _buildCommunicationFeedbackTab(),
         ];
       case 5: // Reports
+        // For all report tabs, we'll use the same ReportsPage widget since it has its own internal tab navigation
         return [
-          _buildReportsFinancialTab(),
-          _buildReportsAcademicTab(),
-          _buildReportsStaffTab(),
-          _buildReportsExportTab(),
+          const ReportsPage(),
+          const ReportsPage(),
+          const ReportsPage(),
+          const ReportsPage(),
+          const ReportsPage(),
+          const ReportsPage(),
         ];
       default:
         return [Container()];
@@ -1141,43 +1154,7 @@ class _AdminDashboardPageState extends State<AdminDashboardPage> with SingleTick
     );
   }
   
-  // Reports Tab Views
-  
-  Widget _buildReportsFinancialTab() {
-    return Center(
-      child: Text(
-        'Financial Reports Tab - Coming Soon',
-        style: TextStyle(fontFamily: 'Nunito'),
-      ),
-    );
-  }
-  
-  Widget _buildReportsAcademicTab() {
-    return Center(
-      child: Text(
-        'Academic Reports Tab - Coming Soon',
-        style: TextStyle(fontFamily: 'Nunito'),
-      ),
-    );
-  }
-  
-  Widget _buildReportsStaffTab() {
-    return Center(
-      child: Text(
-        'Staff Reports Tab - Coming Soon',
-        style: TextStyle(fontFamily: 'Nunito'),
-      ),
-    );
-  }
-  
-  Widget _buildReportsExportTab() {
-    return Center(
-      child: Text(
-        'Export Reports Tab - Coming Soon',
-        style: TextStyle(fontFamily: 'Nunito'),
-      ),
-    );
-  }
+  // Reports Tab Views are handled directly by ReportsPage
   
   // Common Widgets
   
