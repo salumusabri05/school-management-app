@@ -7,10 +7,10 @@ import 'screens/login_page.dart';
 import 'providers/auth_provider.dart';
 import 'screens/splash_screen.dart';
 import 'screens/role_selection_page.dart';
-import 'screens/admin_dashboard_page.dart';
-import 'screens/student_dashboard_page.dart';
-import 'screens/teacher_dashboard_page.dart';
-import 'screens/parent_dashboard_page.dart';
+import 'screens/admin/admin_dashboard_page.dart';
+import 'screens/student/student_dashboard_page.dart';
+import 'screens/teacher/teacher_dashboard_page.dart';
+import 'screens/parent/parent_dashboard_page.dart';
 
 /// Entry point for the application
 void main() async {
